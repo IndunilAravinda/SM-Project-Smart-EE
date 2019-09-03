@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 03-Sep-2019 12:32:23 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojo.AnswersHistory" table="answers_history" catalog="alexam" optimistic-lock="version">
+        <id name="idAnswersHistory" type="java.lang.Integer">
+            <column name="idAnswers_history" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="answers" class="pojo.Answers" fetch="select">
+            <column name="ANSWERS_idANSWERS" not-null="true" />
+        </many-to-one>
+        <many-to-one name="practiceQuestionSet" class="pojo.PracticeQuestionSet" fetch="select">
+            <column name="practice_question_set_idpractice_question_history" not-null="true" />
+        </many-to-one>
+        <many-to-one name="questionSet" class="pojo.QuestionSet" fetch="select">
+            <column name="question_set_idquestionset" not-null="true" />
+        </many-to-one>
+        <many-to-one name="user" class="pojo.User" fetch="select">
+            <column name="user_iduser" not-null="true" />
+        </many-to-one>
+        <property name="answer" type="string">
+            <column name="Answer" length="45" not-null="true" />
+        </property>
+        <property name="type" type="string">
+            <column name="Type" length="45" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

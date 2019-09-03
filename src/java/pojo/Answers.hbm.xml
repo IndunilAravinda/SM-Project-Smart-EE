@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 03-Sep-2019 12:32:23 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojo.Answers" table="answers" catalog="alexam" optimistic-lock="version">
+        <id name="idAnswers" type="java.lang.Integer">
+            <column name="idANSWERS" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="question" class="pojo.Question" fetch="select">
+            <column name="QUESTION_idquestion" not-null="true" />
+        </many-to-one>
+        <property name="text" type="string">
+            <column name="text" length="256" />
+        </property>
+        <property name="iscorrect" type="java.lang.Byte">
+            <column name="iscorrect" />
+        </property>
+        <set name="answersHistories" table="answers_history" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ANSWERS_idANSWERS" not-null="true" />
+            </key>
+            <one-to-many class="pojo.AnswersHistory" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 03-Sep-2019 12:32:23 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojo.EnumSubject" table="enum_subject" catalog="alexam" optimistic-lock="version">
+        <id name="idenumsubject" type="java.lang.Integer">
+            <column name="idenumsubject" />
+            <generator class="identity" />
+        </id>
+        <property name="subject" type="string">
+            <column name="subject" length="100" />
+        </property>
+        <set name="questionSets" table="question_set" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idenumsubject" not-null="true" />
+            </key>
+            <one-to-many class="pojo.QuestionSet" />
+        </set>
+        <set name="enumSectionses" table="enum_sections" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idenumsubject" not-null="true" />
+            </key>
+            <one-to-many class="pojo.EnumSections" />
+        </set>
+    </class>
+</hibernate-mapping>
