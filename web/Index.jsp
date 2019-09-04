@@ -307,14 +307,14 @@
 
                         <!-- Modal content-->
                         <div class="modal-content">
-                            <form action="EXam.jsp" method="GET">
+                            <form action="Search.jsp" method="GET">
                                 <div class="modal-header">
                                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                                     <h4 class="modal-title" id="modal_title">sasd</h4>
                                 </div>
                                 <div class="modal-body">
                                     <input type="hidden" name="type" id="model_type" class="d-none"/>
-                                    <select name="subject"  id="subs" class="form-control"  >
+                                    <select name="Subjectss"  id="subs" class="form-control"  >
                                         <%
                                             //                                                            List<EnumSubject> qwe = new Getting().getallsubject();
                                             for (EnumSubject row : l) {
@@ -326,7 +326,7 @@
 
                                     </select>
 
-                                    <select name="lan" id="people" class="form-control">
+                                    <select name="people" id="people" class="form-control">
                                         <option value="sin">සිංහල</option>
                                         <option value="en">English</option>
                                     </select>
@@ -1028,6 +1028,9 @@
         <!-- Main -->
         <script src="assets2/js/main.js"></script>
         <script>
+                                        var subject = document.getElementById("model_type").value;
+                                        var text = "?text= ";
+                                        var people = "?people=".concat(document.getElementById("people").value);
                                         document.addEventListener('DOMContentLoaded', function () {
                                             document.getElementById('time').addEventListener('click', function () {
                                                 document.getElementById("modal_title").innerHTML = "Time Question";
@@ -1039,6 +1042,8 @@
                                             document.getElementById('subjectsss').addEventListener('click', function () {
                                                 document.getElementById("modal_title").innerHTML = "Subject Wise Question";
                                                 document.getElementById("model_type").value = "subject";
+                                                
+//                                                window.location.href="Search.jsp?Subjectss=".concat(subject,text,people);
                                                 $("#myModal").modal();
                                             }, false);
                                         }, false);

@@ -59,7 +59,8 @@
                                         <div class="col-12 py-2 center-text">
                                             <label for="subject-sin">වීශය</label>
                                             <select name="subject-sin" class="form-control" id="subject-sin" >
-                                                <%                                                    List<EnumSubject> li = new Getting().getallsubject();
+                                                <%                                                    
+                                                List<EnumSubject> li = new Getting().getallsubject();
                                                     for (EnumSubject l : li) {
                                                         out.write("<option value=" + l.getSubject() + ">" + l.getSubject() + "</option>");
                                                     }
@@ -74,6 +75,7 @@
                                             %>
                                             <hr/>
                                             <br/>
+                                            
                                             <div class="col-12">
                                                 <div class="card mb-3" >
                                                     <div class="row no-gutters">
@@ -84,11 +86,12 @@
                                                                 <img src="https://via.placeholder.com/300x150" class="card-img" alt="..." id="sin_img_<% out.write("" + i); %>">
                                                                 <br/>
                                                                 <br>
-                                                                <input type="file" accept="image/jpeg" class="btn btn-outline-primary px-10" oninput ="simages(this,<% out.write("" + i); %>)" name="sin_file_<% out.write("" + i); %>" id="sin_file_<% out.write("" + i); %>" required />
+                                                                <input type="file" accept="image/jpeg" class="btn btn-outline-primary px-10" oninput ="simages(this,<% out.write("" + i); %>)" name="sin_file_<% out.write("" + i); %>" id="sin_file_<% out.write("" + i); %>" />
                                                             </center>
                                                         </div>
                                                         <div class="col-md-8">
                                                             <div class="card-body">
+                                                                
                                                                 <h5 class="card-title">ප්‍රශන අංකය : <% out.write("" + i); %></h5>
                                                                 <input class="form-control"  type="text" required placeholder="ප්‍රශ්නය" id="sin_que_<% out.write("" + i); %>" name="sin_que_<% out.write("" + i); %>"/>
                                                                 <p>ඔබෙ පිලිතූර තොරන්න:</p>
@@ -164,9 +167,9 @@
                                                 </div>
                                             </div>
 
-
                                             <%
                                                 }
+                                        
                                             %>
                                             <div class="col-12 py-2 center-text">
                                                 <input type="button" name="submit" id="sub" onclick="checkall()" class="btn btn-outline-primary px-10" value="Add Paper"/>
@@ -212,7 +215,7 @@
                                                                 <img src="https://via.placeholder.com/300x150" class="card-img" alt="..." id="en_img_<% out.write("" + i); %>">
                                                                 <br/>
                                                                 <br>
-                                                                <input type="file" accept="image/jpeg" class="btn btn-outline-primary px-10" oninput ="simagesen(this,<% out.write("" + i); %>)" name="en_file_<% out.write("" + i); %>" id="en_file_<% out.write("" + i); %>" required />
+                                                                <input type="file" accept="image/jpeg" class="btn btn-outline-primary px-10" oninput ="simagesen(this,<% out.write("" + i); %>)" name="en_file_<% out.write("" + i); %>" id="en_file_<% out.write("" + i); %>" />
                                                             </center>
                                                         </div>
                                                         <div class="col-md-8">

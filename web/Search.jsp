@@ -318,12 +318,16 @@
                     <ul class="event-list">
 
                         <%            boolean b = false;
+                            boolean c = false;
                             String text = request.getParameter("text");
                             String sub = request.getParameter("Subjectss");
                             String lan = request.getParameter("people");
                             if (text != null && sub != null && lan != null) {
                                 b = true;
-                            } else {
+                            }else if(sub != null && lan != null){
+                                c=true;
+                            }
+                            else {
                                 response.sendRedirect("Index.jsp");
                             }
                             if (b) {
@@ -335,10 +339,46 @@
 
                         %>
                         <li>
-                            <!--<a href="EXam.jsp?type=subject&subject=<% out.write(sub); %>&lan=<% out.write(lan); %>&QSI=<% out.write(elem.getIdquestionset() + ""); %>"/>-->
+                            <a href="EXam.jsp?type=subject&subject=<% out.write(sub); %>&lan=<% out.write(lan); %>&QSI=<% out.write(elem.getIdquestionset() + ""); %>"/>
+                            
                             <time datetime="2014-07-20">
                                 <span class="day" style="margin-top: 15px;" ><%out.write(i + ""); %></span>
                             </time>
+                            <!--commented-->
+                            <!--<img alt="Independence Day" src="https://farm4.staticflickr.com/3100/2693171833_3545fb852c_q.jpg" />-->
+                            <div class="info">
+                                <h2 class="title">Title : <% out.write(ss[0]); %></h2>
+                                <p class="desc">Author : <% out.write(elem.getUser().getUsername()); %></p>
+                            </div>
+                            <div class="social">
+                                <ul>
+                                    <li class="facebook" style="width: 33%"><a href="EXam.jsp?type=subject&subject=<% out.write(sub); %>&lan=<% out.write(lan); %>&QSI=<% out.write(elem.getIdquestionset() + ""); %>"><img src="https://img.icons8.com/cute-clipart/64/000000/book.png"/></a></li>
+                                    <!--                                    <li class="facebook" style="width:33%;"><a href="#facebook"><span class="fa fa-facebook"></span></a></li>
+                                                                        <li class="twitter" style="width:34%;"><a href="#twitter"><span class="fa fa-twitter"></span></a></li>
+                                                                        <li class="google-plus" style="width:33%;"><a href="#google-plus"><span class="fa fa-google-plus"></span></a></li>-->
+                                </ul>
+                            </div>
+                            <!--</a>-->
+                        </li>
+
+
+                        <%      i++;
+                                }
+                            }else if(c){
+                                int i = 1;
+                                List<QuestionSet> l2 = new Getting().getQuestionSetBySubAndLan(sub, lan);
+                                for (QuestionSet elem : l2) {
+                                    String ss[] = elem.getName().split("_");
+                                    //            }
+
+                        %>
+                        <li>
+                            <a href="EXam.jsp?type=subject&subject=<% out.write(sub); %>&lan=<% out.write(lan); %>&QSI=<% out.write(elem.getIdquestionset() + ""); %>"/>
+                            
+                            <time datetime="2014-07-20">
+                                <span class="day" style="margin-top: 15px;" ><%out.write(i + ""); %></span>
+                            </time>
+                            <!--commented-->
                             <!--<img alt="Independence Day" src="https://farm4.staticflickr.com/3100/2693171833_3545fb852c_q.jpg" />-->
                             <div class="info">
                                 <h2 class="title">Title : <% out.write(ss[0]); %></h2>

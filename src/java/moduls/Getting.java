@@ -364,6 +364,26 @@ public class Getting {
 
         return l;
     }
+    
+    public List<QuestionSet> getQuestionSetBySubAndLan(String Sub, String lan) {
+
+        System.out.println(Sub + " " + lan + " ");
+        List<QuestionSet> l = new ArrayList<>();
+        List<QuestionSet> questionSetBySubject = getQuestionSetBySubject(getSubjectIdBySuject(Sub));
+        Criteria cc = s.createCriteria(QuestionSet.class);
+        cc.add(Restrictions.like("name", lan, MatchMode.END));
+        List<QuestionSet> list = cc.list();
+        for (QuestionSet qs : questionSetBySubject) {
+            for (QuestionSet qs1 : list) {
+                if (qs.getIdquestionset() == qs1.getIdquestionset()) {
+                    System.out.println("sub " + qs.getName());
+                    l.add(qs);
+                }
+            }
+        }
+
+        return l;
+    }
 
     public User getUserByEmail(String email) {
         return (User) s.createCriteria(User.class).add(Restrictions.eq("email", email)).uniqueResult();
