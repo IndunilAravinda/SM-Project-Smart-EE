@@ -155,7 +155,7 @@
                         <input type="button" class="btn btn-warning col-3" value="Answer E" style="margin-right: 5px"  onclick="selectanswer(5,<% out.write(q1.getIdquestion() + ""); %>)"  name="options" id="option5" autocomplete="off">  
 
                     </div>
-                    <div class="btn-group float-right" role="group" aria-label="Third group">
+                        <div class="btn-group float-right" role="group" aria-label="Third group" id="nextBackButtons">
                         <button type="button" class="btn btn-success" onclick="back(<% out.write(id + ""); %>)">Back</button>
                         <button type="button" class="btn btn-danger" onclick="next(<% out.write(id + ""); %>)">Next </button>
 

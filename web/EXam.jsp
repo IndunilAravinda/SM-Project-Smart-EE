@@ -273,16 +273,13 @@
 
                                                 xhttp.onreadystatechange = function () {
                                                     if (this.readyState == 4 && this.status == 200) {
-                                                        next(qe);
+//                                                        next(qe);
                                                     }
                                                 };
                                                 xhttp.open("Post", "Answered", true);
                                                 xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
                                                 xhttp.send("Qe=" + q + "&sele=" + q + "&seleq=" + cor + "&type=" + type);
                                             }
-
-
-
                                             window.onload = loader();
 
         </script>

@@ -14,7 +14,9 @@
 <%@page import="moduls.Getting"%>
 <%@page import="moduls.NewClass"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html" lang="en">
 
@@ -164,9 +166,7 @@
         </footer>
 
         <!-- SCRIPTS -->
-
-
-
+        
         <script src="assets/plugin-frameworks/popper.js'"></script>
         <script src="assets/plugin-frameworks/jquery-3.2.1.min.js"></script>
 
@@ -203,6 +203,7 @@
                 loader();
 
             }
+
 //            function back(ii) {
 //                if (qe !== 0) {
 //                    qe = --ii;
